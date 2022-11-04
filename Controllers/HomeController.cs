@@ -11,11 +11,11 @@ namespace ProductsProject.Controllers
         private readonly IProductService _productService;
 
         public HomeController(ILogger<HomeController> logger,
-             ApplicationDbContext context, IProductService productService, IServiceProvider serviceProvider)
+             ApplicationDbContext context, IProductService productService)
         {
             _logger = logger;
             _productService = productService;
-            _serviceProvider = serviceProvider;
+            //_serviceProvider = serviceProvider;
             /*ApplicationDbContext
                 .SeedData(_serviceProvider.GetRequiredService<UserManager<AppUser>>()
                 , _serviceProvider.GetRequiredService<RoleManager<IdentityRole>>()).Wait();*/
