@@ -1,0 +1,24 @@
+﻿@model Product
+
+<div class="p-2 bg-primary text-white">
+    <h3>
+        Product List
+    </h3>
+</div>
+
+<form asp-action="Create" method="post" class="bg-outline-success">
+    <input name="returnUrl" value="@ViewBag.ReturnUrl" type="hidden" />
+    <input asp-for="Id" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update product</button>
+        <a href="@ViewBag.ReturnUrl" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+</form>

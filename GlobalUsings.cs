@@ -1,0 +1,13 @@
+﻿global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using ProductsProject.DAL;
+global using Microsoft.AspNetCore.Mvc;
+global using ProductsProject.Models;
+global using System.Diagnostics;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using ProductsProject.Models.Enums;
+global using System.Text.Json;
+global using Newtonsoft.Json;
+global using ProductsProject.DAL.Interfaces;
+global using ProductsProject.Services.ServiceInterfaces;
+global using ProductsProject.Services;

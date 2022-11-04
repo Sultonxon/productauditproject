@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Audit>
+
+<div class="p-2 bg-success text-white">
+    <h3>
+        Product History
+    </h3>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Table Name</th>
+            <th>Type</th>
+            <th>Primary Key</th>
+            <th>User</th>
+            <th>Date Time</th>
+            <th>Affected Columns</th>
+            <th>New values</th>
+            <th>Old Values</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var audit in Model)
+        {
+            <tr>
+                <td>@audit.TableName</td>
+                <td>@audit.Type</td>
+                <td>@audit.PrimaryKey</td>
+                <td>@audit.UserId</td>
+                <td>@audit.DateTime</td>
+                <td>@audit.AffectedColumns</td>
+                <td>@audit.NewValues</td>
+                <td>@audit.OldValues</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

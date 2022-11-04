@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Product>
+
+<div class="p-2 bg-success text-white">
+    <h3>
+        Product List
+    </h3>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th><th>Price</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@product.Id"
+                        asp-route-returnUrl="@Context.PathAndQuery()"
+                        class="btn btn-primary">Update</a>
+                    <form method="post" asp-action="Delete">
+                        <input name="returnUrl" value="@Context.PathAndQuery()" type="hidden"/>
+                        <input name="id" value="@product.Id" type="hidden"/>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="display-flex justify-center">
+    <a class="btn btn-primary" asp-action="Create" asp-route-returnUrl="@Context.PathAndQuery()">
+        Create a new product
+    </a>
+</div>
