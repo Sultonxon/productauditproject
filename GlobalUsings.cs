@@ -11,3 +11,4 @@ global using Newtonsoft.Json;
 global using ProductsProject.DAL.Interfaces;
 global using ProductsProject.Services.ServiceInterfaces;
 global using ProductsProject.Services;
+global using System.Security.Claims;

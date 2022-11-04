@@ -19,7 +19,7 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
-
+builder.Services.AddScoped<IConfigurationService, ConfigurationService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 //builder.Services.AddMvc(o => o.EnableEndpointRouting = false);

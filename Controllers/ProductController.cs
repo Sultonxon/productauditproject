@@ -38,7 +38,7 @@ namespace ProductsProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product, string returnUrl)
         {
-            await _productService.CreateProduct(product, User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            await _productService.CreateProduct(product);
             return Redirect(returnUrl);
         }
 
@@ -53,7 +53,7 @@ namespace ProductsProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(Product product, string returnUrl)
         {
-            await  _productService.UpdateProduct(product, User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            await  _productService.UpdateProduct(product);
             return Redirect(returnUrl);
         }
 
@@ -62,7 +62,7 @@ namespace ProductsProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(string id, string returnUrl)
         {
-            await _productService.DeleteProduct(id, User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            await _productService.DeleteProduct(id);
             return Redirect(returnUrl);
         }
     }

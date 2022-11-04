@@ -18,30 +18,34 @@ public class ProductRepository : IProductRepository
         return p;
     }
 
-    public async Task<bool> UpdateProduct(Product product, string userId)
+    public async Task UpdateProduct(Product product)
     {
         Product entity = _context.Products.FirstOrDefault(x => x.Id == product.Id);
         if(entity is null)
         {
-            return false;
+            return;
         }
         entity.Name = product.Name;
         entity.Price = product.Price;
-        return await _context.SaveChangesAsync(userId) > 0;
     }
 
-    public async Task CreateProduct(Product product, string userId)
+    public async Task CreateProduct(Product product)
     {
         product.Id = Guid.NewGuid().ToString();
         _context.Products.Add(product);
-        await _context.SaveChangesAsync(userId);
     }
 
-    public async Task DeleteProduct(string id, string userId)
+    public async Task DeleteProduct(string id)
     {
         _context.Products.Remove(new Product { Id = id });
+    }
+
+    public async Task SaveChangesAsync(string userId)
+    {
         await _context.SaveChangesAsync(userId);
     }
 
     public IEnumerable<Audit> ProductAudits => _context.AuditLogs.ToList();
+
+
 }

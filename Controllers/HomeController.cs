@@ -7,16 +7,16 @@ namespace ProductsProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
         private readonly IProductService _productService;
 
         public HomeController(ILogger<HomeController> logger,
-             ApplicationDbContext context, IProductService productService)
+             ApplicationDbContext context, IProductService productService, IServiceProvider serviceProvider)
         {
             _logger = logger;
             _productService = productService;
-            /*_serviceProvider = serviceProvider;
-            ApplicationDbContext
+            _serviceProvider = serviceProvider;
+            /*ApplicationDbContext
                 .SeedData(_serviceProvider.GetRequiredService<UserManager<AppUser>>()
                 , _serviceProvider.GetRequiredService<RoleManager<IdentityRole>>()).Wait();*/
 

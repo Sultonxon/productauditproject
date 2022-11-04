@@ -21,16 +21,17 @@ namespace ProductsProject.DAL
         }
 
 
-        public static async Task SeedData(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public static async Task SeedData(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            /*await roleManager.CreateAsync(new IdentityRole("Admin"));
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
             await roleManager.CreateAsync(new IdentityRole("User"));
 
-            await userManager.CreateAsync(new AppUser { UserName = "Admin" }, "Secret123$");
+            await userManager.CreateAsync(new AppUser { UserName = "Admin", Email = "admin@gmail.com" }, 
+                                                        "Secret123$");
             var user = await userManager.FindByNameAsync("Admin");
             userManager.AddToRoleAsync(user, "Admin");
             userManager.AddToRoleAsync(user, "User");
-            userManager.role*/
+            
 
             
         }

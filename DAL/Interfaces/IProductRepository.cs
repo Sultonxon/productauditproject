@@ -6,12 +6,15 @@ public interface IProductRepository
 
     Product Get(string id);
 
-    Task<bool> UpdateProduct(Product product, string userId);
+    Task UpdateProduct(Product product);
 
-    Task CreateProduct(Product product, string userId);
+    Task CreateProduct(Product product);
     
-    Task DeleteProduct(string id, string userId);
+    Task DeleteProduct(string id);
 
 
     IEnumerable<Audit> ProductAudits { get; }
+
+
+    Task SaveChangesAsync(string userId);
 }
