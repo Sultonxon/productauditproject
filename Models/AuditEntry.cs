@@ -26,9 +26,9 @@ public class AuditEntry
         audit.Type = AuditType.ToString();
         audit.DateTime = DateTime.Now;
         audit.PrimaryKey = JsonConvert.SerializeObject(KeyValues);
-        audit.OldValues = OldValues.Count == 0 ? null : JsonConvert.SerializeObject(OldValues);
-        audit.NewValues = NewValues.Count == 0 ? null : JsonConvert.SerializeObject(NewValues);
-        audit.AffectedColumns = ChangedColumns.Count == 0 ? null : JsonConvert.SerializeObject(ChangedColumns);
+        audit.OldValues = OldValues.Count == 0 ? "" : JsonConvert.SerializeObject(OldValues);
+        audit.NewValues = NewValues.Count == 0 ? "" : JsonConvert.SerializeObject(NewValues);
+        audit.AffectedColumns = ChangedColumns.Count == 0 ? "" : JsonConvert.SerializeObject(ChangedColumns);
         return audit;
     }
 }

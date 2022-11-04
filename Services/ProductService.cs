@@ -9,23 +9,23 @@ public class ProductService : IProductService
         _repository = repository;
     }
 
-    public void CreateProduct(Product product)
+    public async Task CreateProduct(Product product, string userId)
     {
-        _repository.CreateProduct(product);
+        await _repository.CreateProduct(product, userId);
     }
 
-    public void DeleteProduct(string id)
+    public async Task DeleteProduct(string id, string userId)
     {
-        _repository.DeleteProduct(id);
+        await _repository.DeleteProduct(id, userId);
     }
 
     public Product GetProduct(string id) => _repository.Get(id);
 
     public IEnumerable<Product> GetProducts() => _repository.GetProducts();
 
-    public void UpdateProduct(Product product)
+    public async Task UpdateProduct(Product product, string userId)
     {
-        _repository.UpdateProduct(product);
+        await _repository.UpdateProduct(product, userId);
     }
 
     public IEnumerable<Audit> GetAuditLogs() => _repository.ProductAudits;

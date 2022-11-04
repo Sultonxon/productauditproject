@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ProductsProject.Controllers
 {
@@ -21,6 +22,7 @@ namespace ProductsProject.Controllers
             {
                 Console.WriteLine($"\n\n\n\n*****************ID = {item.Id}\n\n\n");
             }
+
             return View(products);
         }
 
@@ -32,9 +34,9 @@ namespace ProductsProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Product product, string returnUrl)
+        public async Task<IActionResult> Create(Product product, string returnUrl)
         {
-            _productService.CreateProduct(product);
+            await _productService.CreateProduct(product, User.FindFirst(ClaimTypes.NameIdentifier).Value);
             return Redirect(returnUrl);
         }
 
@@ -47,18 +49,18 @@ namespace ProductsProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Product product, string returnUrl)
+        public async Task<IActionResult> Update(Product product, string returnUrl)
         {
-            _productService.UpdateProduct(product);
+            await  _productService.UpdateProduct(product, User.FindFirst(ClaimTypes.NameIdentifier).Value);
             return Redirect(returnUrl);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(string id, string returnUrl)
+        public async Task<IActionResult> Delete(string id, string returnUrl)
         {
-            _productService.DeleteProduct(id);
+            await _productService.DeleteProduct(id, User.FindFirst(ClaimTypes.NameIdentifier).Value);
             return Redirect(returnUrl);
         }
     }

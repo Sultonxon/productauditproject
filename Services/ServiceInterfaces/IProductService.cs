@@ -6,11 +6,11 @@ public interface IProductService
 
     IEnumerable<Product> GetProducts();
 
-    void CreateProduct(Product product);
+    Task CreateProduct(Product product, string userId);
 
-    void UpdateProduct(Product product);
+    Task UpdateProduct(Product product, string userId);
 
-    void DeleteProduct(string id);
+    Task DeleteProduct(string id, string userId);
 
     IEnumerable<Audit> GetAuditLogs();
 }
