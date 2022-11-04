@@ -1,5 +1,7 @@
 ﻿
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace ProductsProject.Controllers
 {
     public class HomeController : Controller
@@ -31,6 +33,7 @@ namespace ProductsProject.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult ProductHistory() => View(_productService.GetAuditLogs());
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
